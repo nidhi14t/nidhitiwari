@@ -1,25 +1,97 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  navBar,
+  mainBody,
+  about,
+  repos,
+  leadership,
+  skills,
+  getInTouch,
+  experiences,
+} from "./update-info/config.js";
+import MainBody from "./components/Home/MainBody";
+import AboutMe from "./components/Home/AboutMe";
+import Project from "./components/Home/Project";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Skills from "./components/Home/Skills";
+// import { Blog } from "./components/blog/Blog";
+// import BlogPost from "./components/blog/BlogPost";
+import GetInTouch from "./components/Home/GetInTouch";
+import Leadership from "./components/Home/Leadership";
 
-function App() {
+import Experience from "./components/Home/Experience";
+
+const Home = React.forwardRef((props, ref) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MainBody
+        gradient={mainBody.gradientColors}
+        title={`${mainBody.firstName} ${mainBody.middleName} ${mainBody.lastName}`}
+        message={mainBody.message}
+        icons={mainBody.icons}
+        ref={ref}
+      />
+      {about.show && (
+        <AboutMe
+          heading={about.heading}
+          message={about.message}
+          link={about.imageLink}
+          imgSize={about.imageSize}
+          resume={about.resume}
+        />
+      )}
+      {experiences.show && <Experience experiences={experiences} />}
+      {repos.show && (
+        <Project
+          heading={repos.heading}
+          username={repos.gitHubUsername}
+          length={repos.reposLength}
+          specfic={repos.specificRepos}
+        />
+      )}
+      {leadership.show && (
+        <Leadership
+          heading={leadership.heading}
+          message={leadership.message}
+          img={leadership.images}
+          imageSize={leadership.imageSize}
+        />
+      )}
+      {skills.show && (
+        <Skills
+          heading={skills.heading}
+          hardSkills={skills.hardSkills}
+          softSkills={skills.softSkills}
+        />
+      )}
+    </>
   );
-}
+});
+
+const App = () => {
+  const titleRef = React.useRef();
+
+  return (
+    <BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
+      {navBar.show && <Navbar ref={titleRef} />}
+      <Routes>
+        <Route path="/" exact element={<Home ref={titleRef} />} />
+      </Routes>
+      {/* {false && <Route path="/blog" exact component={Blog} />}
+      {false && <Route path="/blog/:id" component={BlogPost} />} */}
+      <Footer>
+        {getInTouch.show && (
+          <GetInTouch
+            heading={getInTouch.heading}
+            message={getInTouch.message}
+            email={getInTouch.email}
+          />
+        )}
+      </Footer>
+    </BrowserRouter>
+  );
+};
 
 export default App;
