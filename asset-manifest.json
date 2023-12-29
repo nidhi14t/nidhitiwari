@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/nidhitiwari/static/css/main.a4e54024.css",
+    "main.js": "/nidhitiwari/static/js/main.57263e03.js",
+    "static/js/787.a70a8ac7.chunk.js": "/nidhitiwari/static/js/787.a70a8ac7.chunk.js",
+    "static/media/nidhi.jpeg": "/nidhitiwari/static/media/nidhi.4d0d04810ab6ce068434.jpeg",
+    "static/media/Persistent.jpg": "/nidhitiwari/static/media/Persistent.733918b7ff9fb6367d06.jpg",
+    "static/media/IBM.jpg": "/nidhitiwari/static/media/IBM.b700f9aef98d6a67d5ad.jpg",
+    "index.html": "/nidhitiwari/index.html",
+    "main.a4e54024.css.map": "/nidhitiwari/static/css/main.a4e54024.css.map",
+    "main.57263e03.js.map": "/nidhitiwari/static/js/main.57263e03.js.map",
+    "787.a70a8ac7.chunk.js.map": "/nidhitiwari/static/js/787.a70a8ac7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4e54024.css",
+    "static/js/main.57263e03.js"
+  ]
+}
